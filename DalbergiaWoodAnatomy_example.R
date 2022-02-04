@@ -3,7 +3,7 @@ source("DalbergiaWoodAnatomy_helperfunctions") # you need recode.wa() and get.di
 
 
 ## read example data
-df <- read.delim("RawData/get.diag_exampledata.txt")
+df <- read.delim("data/DalbergiaWoodAnatomy_exampledata.txt")
 
 
 ## recode from WP [ab, c, b, ...] to WP_a [0, 1] / WP_b [0, 1] / WP_c [0, 1]
