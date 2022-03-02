@@ -1,5 +1,5 @@
 # DalbergiaWoodAnatomy
-R code and functions developed for Ramanantisalonina et al. (in prep.)
+R code and functions developed for Ramanantisalonina *et al.* (in prep.)
 
 ## Toy dataset demonstration
 
