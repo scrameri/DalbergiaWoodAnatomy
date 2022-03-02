@@ -3,8 +3,9 @@ R code and functions developed for Ramanantisalonina *et al.* (in prep.)
 
 
 ## Folder structure
-[Ramanantisalonina_etal_2022](https://github.com/scrameri/DalbergiaWoodAnatomy/blob/main/Ramanantisalonina_etal_2022) contains the [R script](https://github.com/scrameri/DalbergiaWoodAnatomy/blob/main/Ramanantisalonina_etal_2022/Ramanantialonina_etal_2022_ANALYSES.R) for all analyses carried out in the article.
-[diagnostic_example](https://github.com/scrameri/DalbergiaWoodAnatomy/blob/main/diagnostic_example/) contains an [R script](https://github.com/scrameri/DalbergiaWoodAnatomy/blob/main/diagnostic_example/DalbergiaWoodAnatomy_example.R) demonstrating how to recode qualitative characters to dummy binary variables, combine them with quantitative characters, and search for potentially diagnostic characters to distinguish between custom groups.
+- [Ramanantisalonina_etal_2022](https://github.com/scrameri/DalbergiaWoodAnatomy/blob/main/Ramanantisalonina_etal_2022) contains the [R script](https://github.com/scrameri/DalbergiaWoodAnatomy/blob/main/Ramanantisalonina_etal_2022/Ramanantialonina_etal_2022_ANALYSES.R) for all analyses carried out in the article.
+
+- [diagnostic_example](https://github.com/scrameri/DalbergiaWoodAnatomy/blob/main/diagnostic_example/) contains an [R script](https://github.com/scrameri/DalbergiaWoodAnatomy/blob/main/diagnostic_example/DalbergiaWoodAnatomy_example.R) demonstrating how to recode qualitative characters to dummy binary variables, combine them with quantitative characters, and search for potentially diagnostic characters to distinguish between custom groups.
 
 ## Toy dataset demonstration
 
