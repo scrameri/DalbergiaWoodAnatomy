@@ -1,6 +1,15 @@
+##########################################
+### Diagnostic Characters: toy example ###
+##########################################
+
+# author: sfcrameri@gmail.com, Mar 2022
+
+## Instructions
+# Set working directory to the folder where this script is located.
+# You can do so by clicking on the RStudio Menu "Session/Set Working Directory/To Source File Location"
+
 ## load function
 source("DalbergiaWoodAnatomy_helperfunctions.R") # you need recode.wa() and get.diag() from here
-
 
 ## read example data
 df <- read.delim("get.diag_exampledata.txt")
