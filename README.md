@@ -8,6 +8,7 @@ R code and functions developed for Ramanantisalonina *et al.* (in prep.)
 - [diagnostic_example](https://github.com/scrameri/DalbergiaWoodAnatomy/blob/main/diagnostic_example/) contains an [R script](https://github.com/scrameri/DalbergiaWoodAnatomy/blob/main/diagnostic_example/DalbergiaWoodAnatomy_example.R) demonstrating how to recode qualitative characters to dummy binary variables, combine them with quantitative characters, and search for potentially diagnostic characters to distinguish between custom groups.
 
 ## Toy dataset demonstration
+- example data will be made available upon acceptance of the article
 
 ### Instructions
 1) Clone repository (Green button above, or click [here](https://github.com/scrameri/DalbergiaWoodAnatomy/archive/refs/heads/main.zip))
