@@ -1,23 +1,24 @@
 ## load function
-source("DalbergiaWoodAnatomy_helperfunctions") # you need recode.wa() and get.diag() from here
+source("DalbergiaWoodAnatomy_helperfunctions.R") # you need recode.wa() and get.diag() from here
 
 
 ## read example data
-df <- read.delim("RawData/get.diag_exampledata.txt")
+df <- read.delim("get.diag_exampledata.txt")
 
+## inspect
+View(df)
 
 ## recode from WP [ab, c, b, ...] to WP_a [0, 1] / WP_b [0, 1] / WP_c [0, 1]
 # df <- dc.meta[dc.meta$Species %in% c("chlorocarpa","davidii","lemurica","urschii"),c("Species",var.wa)]
 # write.table(df, file = "RawData/get.diag_exampledata.txt", row.names = T, quote = F, sep = "\t")
-df.recoded <- recode.wa(df = df[,-1])
-
+df.recoded <- recode.wa(df = df[,-1]) # all except the first column (species) are wood anatomical characters
 
 ## inspect correlated variables
 df.recoded$redundant # these variables are 100% correlated with other variables in the dataset
 
-# each column and row is a variable. The number is the Pearson correlation coefficient. 1 or -1 means it's redundant.
+# see that WP_b = APA_b, APP_b = APP_e, RW_a = -RW_b, RCC_a = -RCC_b, SS_a = -SS_b
 suppressWarnings(na.omit(cor(df.recoded$df)[,df.recoded$redundant], use = "pairwise"))
-# WP_b = APA_b, APP_b = APP_e, RW_a = -RW_b, RCC_a = -RCC_b, SS_a = -SS_b
+# each column and row is a variable. The number is the Pearson correlation coefficient. 1 or -1 means it's redundant.
 
 
 ## prepare dataset
@@ -27,7 +28,8 @@ table(df$Species) # table of groups (how many of each species in this case)
 
 
 ## search diagnostic characters (on the basis of just the 4 example species)
-res.diag <- get.diag(df = df.recoded$df, fac = df$Species) # takes a while if you have a large dataset
+get.diag # look at the function and Usage
+res.diag <- get.diag(df = df.recoded$df, grouping = df$Species, factor.name = "Species") # takes a while if you have a large dataset
 
 # inspect results (filter for high TPR and low FPR!)
 View(res.diag) # the table contains much more than the truly diagnostic characters and thresholds, you can filter it

@@ -2089,35 +2089,35 @@ split.fun <- function(x, labs, digits, varlen, faclen) {
   }
   labs
 }
-get.diag <- function(df, fac, level = nlevels(fac)-1, verbose = TRUE) {
+get.diag <- function(df, grouping, factor.name = "", level = nlevels(grouping)-1, verbose = TRUE) {
   
   ## Usage:
-  # df      data.frame
-  # fac     grouping factor (same length as nrow(df))
-  # level   grouping level. 1 only searches diagnostic features in a single group, nlevels(fac)-1 [default] considers all possible combinations of grouping factor levels.
-  # verbose whether to be verbose during comupations [default: TRUE]
+  # df        data.frame
+  # grouping  grouping factor (same length as nrow(df))
+  # level     grouping level. 1 only searches diagnostic features in a single group, nlevels(grouping)-1 [default] considers all possible combinations of grouping factor levels.
+  # verbose   whether to be verbose during comupations [default: TRUE]
   
   ## Value:
   # data.frame with the following components
-  # FACTOR grouping factor (e.g. species)
-  # NLEVELS number of grouping factor levels (e.g. number of species)
-  # LEVEL grouping level (equal to the length of GROUP)
-  # GROUP group (e.g. single species, or group of species) for which a VARIABLE is diagnostic
-  # VARIABLE diagnostic character (state)
-  # THR threshold (1 for qualitative character states, any number for quantitative characters)
-  # STATE whether the GROUP has frequently a high (≥) or low (<) value for a VARIABLE
-  # FREQ frequency of character state VARIABLE in GROUP
-  # MISS percentage of missing data in VARIABLE
-  # TPR true positive rate (proportion of individuals of a given group showing a given character state)
-  # FPR false positive rate (proportion of individuals excluding a given group showing that character state)
+  #  FACTOR grouping factor (e.g. species)
+  #  NLEVELS number of grouping factor levels (e.g. number of species)
+  #  LEVEL grouping level (equal to the length of GROUP)
+  #  GROUP group (e.g. single species, or group of species) for which a VARIABLE is diagnostic
+  #  VARIABLE diagnostic character (state)
+  #  THR threshold (1 for qualitative character states, any number for quantitative characters)
+  #  STATE whether the GROUP has frequently a high (≥) or low (<) value for a VARIABLE
+  #  FREQ frequency of character state VARIABLE in GROUP
+  #  MISS percentage of missing data in VARIABLE
+  #  TPR true positive rate (proportion of individuals of a given group showing a given character state)
+  #  FPR false positive rate (proportion of individuals excluding a given group showing that character state)
   
   ## Author: simon.crameri@usys.ethz.ch, Jan 2022
   
   # check input
-  if (!is.factor(fac)) fac <- factor(fac)
-  if (level >= nlevels(fac)) level <- nlevels(fac)-1
+  if (!is.factor(grouping)) grouping <- factor(grouping)
+  if (level >= nlevels(grouping)) level <- nlevels(grouping)-1
   stopifnot(inherits(df, c("matrix","data.frame")),
-            all.equal(length(fac), nrow(df)),
+            all.equal(length(grouping), nrow(df)),
             is.numeric(level), level >=1)
   
   # search qualitative and quantitative variables
@@ -2126,13 +2126,14 @@ get.diag <- function(df, fac, level = nlevels(fac)-1, verbose = TRUE) {
   v.quant <- names(bin[!bin])
   
   # be verbose
-  fname <- gsub("__", "_", gsub(" ", "_", gsub('^factor|[()]|[]]|[[]|"|`', "", sub("(.*\\\\)(.*)", "(\\2)", sub("(.*\\$)(.*)", "(\\2)", gsub(",", "_", deparse(substitute(fac))))))))
+  # fname <- gsub("__", "_", gsub(" ", "_", gsub('^factor|[()]|[]]|[[]|"|`', "", sub("(.*\\\\)(.*)", "(\\2)", sub("(.*\\$)(.*)", "(\\2)", gsub(",", "_", deparse(substitute(grouping))))))))
+  fname <- factor.name
   if (verbose) {
     message("Searching diagnostic characters to distinguish ", fname, "\n  ", length(v.qual), " qualitative and ", length(v.quant), " quantitative variables at level ", level, ".")
   }
   
   # loop over variables using different frequency thresholds
-  res <- data.frame(FACTOR = fname, NLEVELS = nlevels(fac), LEVEL = NA, GROUP = NA,
+  res <- data.frame(FACTOR = fname, NLEVELS = nlevels(grouping), LEVEL = NA, GROUP = NA,
                     VARIABLE = NA, THR = NA, STATE = NA, FREQ = NA, MISS = NA, TPR = NA, FPR = NA)[0,]
   
   # loop over variables, value thresholds (quantitative only) and frequency thresholds
@@ -2160,9 +2161,9 @@ get.diag <- function(df, fac, level = nlevels(fac)-1, verbose = TRUE) {
       
       # tabulate
       if (var %in% v.qual) {
-        t <- table(Group = fac, Variable = v)
+        t <- table(Group = grouping, Variable = v)
       } else {
-        t <- table(Group = fac, Variable = factor(v >= thr, levels = c(FALSE, TRUE)))
+        t <- table(Group = grouping, Variable = factor(v >= thr, levels = c(FALSE, TRUE)))
         colnames(t) <- c("0","1")
       }
       
@@ -2199,27 +2200,27 @@ get.diag <- function(df, fac, level = nlevels(fac)-1, verbose = TRUE) {
         }
         
         # calculate TPR and FPR
-        f <- fac[!is.na(v)]
+        f <- grouping[!is.na(v)]
         m <- sum(is.na(v))/nrow(df)
         
         clow <- names(low[which(low)])
-        tpr.low <- sum(t[levels(fac) %in% clow,"0"])/sum(f %in% clow)
-        fpr.low <- sum(t[!levels(fac) %in% clow,"0"])/sum(!f %in% clow)
+        tpr.low <- sum(t[levels(grouping) %in% clow,"0"])/sum(f %in% clow)
+        fpr.low <- sum(t[!levels(grouping) %in% clow,"0"])/sum(!f %in% clow)
         
         chigh <- names(high[which(high)])
-        tpr.high <- sum(t[levels(fac) %in% chigh,"1"])/sum(f %in% chigh)
-        fpr.high <- sum(t[!levels(fac) %in% chigh,"1"])/sum(!f %in% chigh)
+        tpr.high <- sum(t[levels(grouping) %in% chigh,"1"])/sum(f %in% chigh)
+        fpr.high <- sum(t[!levels(grouping) %in% chigh,"1"])/sum(!f %in% chigh)
         
         # save result if diagnostic at level <level>
         if (get(paste0("low", level))) {
-          res.low <- data.frame(FACTOR = fname, NLEVELS = nlevels(fac), LEVEL = length(clow),
+          res.low <- data.frame(FACTOR = fname, NLEVELS = nlevels(grouping), LEVEL = length(clow),
                                 GROUP = paste(clow, collapse = "+"),
                                 VARIABLE = var, THR = thr, STATE = "<", FREQ = freq, MISS = m,
                                 TPR = tpr.low, FPR = fpr.low)
           res <- rbind(res, res.low)
         }
         if (get(paste0("high", level))) {
-          res.high <- data.frame(FACTOR = fname, NLEVELS = nlevels(fac), LEVEL = length(chigh), 
+          res.high <- data.frame(FACTOR = fname, NLEVELS = nlevels(grouping), LEVEL = length(chigh), 
                                  GROUP = paste(chigh, collapse = "+"),
                                  VARIABLE = var, THR = thr, STATE = "≥", FREQ = freq, MISS = m,
                                  TPR = tpr.high, FPR = fpr.high)
