@@ -2,6 +2,8 @@
 ### ANALYZE WOOD ANATOMY ###
 ############################
 
+## author: sfcrameri@gmail.com, 03.09.2022
+
 ## Libraries
 need.pckg <- c("readxl","tidyverse","cluster","ape","terra","GGally","CCA","dendextend","ComplexHeatmap","plotly")
 for (i in need.pckg) if (!i %in% installed.packages()) install.packages(i)
