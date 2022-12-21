@@ -1,0 +1,24 @@
+Species	GR	TGR	WP	APA	APP	BP	APCT	RW	RCC	SS	VG	PP	VP	VRP	GTF	PC	IPD	VD	VL	FL	RH	RMM	NCR	NSS
+CR7390	SpeciesA	a	b	ab	ab	c	ac	ab	b	a	b	a	a	a	a	a	ab	6.25	19.5	170	700	245	11	19	0
+CR7422	SpeciesA	a	bc	ab	ab	c	ac	ab	b	a	b	a	a	a	a	a	ab	9	13	160	NA	110	11	5	0
+RIR2903	SpeciesA	a	b	ab	ab	c	ac	ab	b	a	b	a	a	a	a	a	ab	7.5	13.5	148	1000	165	10	12	0
+RIR2904	SpeciesA	a	b	ab	ab	c	ac	ab	b	a	b	a	a	a	a	a	ab	7.75	14	159	915	135	12	8	0
+SH0741	SpeciesA	a	bc	ab	ab	c	ac	ab	b	a	b	a	a	a	a	a	ab	7.5	9	165	850	130	10	13	0
+RIR3351	SpeciesB	a	bc	ab	ab	ac	ac	ab	b	a	b	a	a	a	a	a	ab	6.25	30	150	1000	120	11	8.5	0
+RIR3352	SpeciesB	a	bc	ab	ab	ac	c	ab	b	a	b	a	a	a	a	a	ab	5	28.5	170	865	150	9.5	9.5	0
+RIR3353	SpeciesB	a	bc	ab	ab	ac	c	ab	b	a	b	a	a	a	a	a	ab	5	38.5	170	955	145	10	8	0
+RIR3571	SpeciesB	a	bc	ab	ab	ac	c	ab	b	a	b	a	a	a	a	a	ab	5	57	140	720	90	13	6	0
+SH0733	SpeciesB	a	bc	ab	ab	ac	c	ab	b	a	b	a	a	a	a	a	ab	5.625	27.5	165	685	120	10	11	0
+CR6514	SpeciesC	a	b	a	a	c	c	ab	b	b	a	a	a	a	a	a	ab	10	89.5	135	750	130	10	10.5	5
+CR6519	SpeciesC	a	bc	a	a	c	c	ab	a	a	a	a	a	a	a	a	ab	7.5	48	150	1000	110	11	7	7
+CR7441	SpeciesC	a	b	a	a	c	c	ab	b	a	a	a	a	a	a	a	ab	5	66	140	NA	100	13	7	10
+RIR3384	SpeciesC	a	bc	a	a	c	c	ab	a	a	a	a	a	a	a	a	ab	12.5	63.5	140	685	125	11	9	6
+RIR3387	SpeciesC	a	bc	a	a	c	c	ab	a	a	a	a	a	a	a	a	ab	11.25	89.5	140	705	145	11	6.5	7
+RIR3388	SpeciesC	a	b	a	a	c	c	ab	b	b	a	a	a	a	a	a	ab	8	32	120	720	120	11	6.5	8
+RIR3419	SpeciesC	a	b	a	a	c	c	ab	b	a	a	a	a	a	a	a	ab	12.5	29	140	840	110	11	7	7
+RIR3420	SpeciesC	a	b	a	a	c	c	ab	a	a	a	a	a	a	a	a	ab	10	44	150	1000	110	12.5	7	7
+ALR2443	SpeciesD	a	b	ab	ab	abce	c	ab	b	b	a	a	a	a	a	a	ab	7.5	10	140	NA	140	12	6	6
+RIR2458	SpeciesD	a	b	ab	ab	abce	c	ab	b	b	a	a	a	a	a	a	ab	7.5	8	180	1000	130	11.5	6	5
+RRN0043	SpeciesD	a	b	ab	ab	abce	c	ab	b	b	a	a	a	a	a	a	ab	7.5	6	150	NA	105	15	6	7
+RRN0044	SpeciesD	a	b	ab	ab	abce	c	ab	b	b	a	a	a	a	a	a	ab	5	7	120	NA	130	14	7	8
+RRN0045	SpeciesD	a	b	ab	ab	abce	c	ab	b	b	a	a	a	a	a	a	ab	5	10	150	820	120	14	6	7
