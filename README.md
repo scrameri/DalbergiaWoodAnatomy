@@ -1,5 +1,7 @@
 # DalbergiaWoodAnatomy
-R code and functions developed for Ramanantisalonina *et al.* (in prep.)
+The R code and functions included in this repository were developed in the following article:
+
+Ramanantsialonina, R.N., Crameri, S., Sandratriniaina, N.A., Wiemann, M.C., Hermanson, J.C., Rakouth, B., & Ravaomanalina, B.H. (2022) Comparative wood anatomy of 16 Malagasy <i>Dalbergia</i> species (Fabaceae) using multivariate techniques. IAWA J. DOI: [https://doi.org/10.1163/22941932-bja10105](https://doi.org/10.1163/22941932-bja10105)
 
 
 ## Folder structure
@@ -8,7 +10,6 @@ R code and functions developed for Ramanantisalonina *et al.* (in prep.)
 - [diagnostic_example](https://github.com/scrameri/DalbergiaWoodAnatomy/blob/main/diagnostic_example/) contains an [R script](https://github.com/scrameri/DalbergiaWoodAnatomy/blob/main/diagnostic_example/DalbergiaWoodAnatomy_example.R) demonstrating how to recode qualitative characters to dummy binary variables, combine them with quantitative characters, and search for potentially diagnostic characters to distinguish between custom groups.
 
 ## Toy dataset demonstration
-- example data will be made available upon acceptance of the article
 
 ### Instructions
 1) Clone repository (Green button above, or click [here](https://github.com/scrameri/DalbergiaWoodAnatomy/archive/refs/heads/main.zip))
