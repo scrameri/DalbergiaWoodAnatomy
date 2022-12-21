@@ -712,7 +712,7 @@ scan()
 library("FactoMineR")
 library("factoextra")
 source("https://raw.githubusercontent.com/scrameri/PopGen/main/src/cplot.R")
-source("https://raw.githubusercontent.com/scrameri/PopGen/main/src/plot.promp.loadings.R")
+source("https://raw.githubusercontent.com/scrameri/PopGen/main/src/plot.prcomp.loadings.R")
 # https://stats.stackexchange.com/questions/16331/doing-principal-component-analysis-or-factor-analysis-on-binary-data/16335#16335
 
 ## PCA input data
