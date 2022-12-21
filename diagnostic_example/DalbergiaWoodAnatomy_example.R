@@ -55,8 +55,8 @@ subset(res.diag, TPR == 1 & FPR == 0 & LEVEL == 1) # these are your diagnostic c
 # LEVEL grouping level (equal to the length of GROUP)
 # GROUP group (e.g. single species, or group of species) for which a VARIABLE is diagnostic
 # VARIABLE diagnostic character (state)
-# THR threshold (1 for qualitative character states, any number for quantitative characters)
-# STATE whether the GROUP has frequently a high (≥) or low (<) value for a VARIABLE
+# THR threshold (any number for quantitative characters, NA for qualitative character states)
+# STATE whether the GROUP has frequently a high (≥) or low (<) value for a quantitative VARIABLE, or a VARIABLE is present or absent in a given GROUP
 # FREQ frequency of character state VARIABLE in GROUP
 # MISS percentage of missing data in VARIABLE
 # TPR true positive rate (proportion of individuals of a given group showing a given character state)
